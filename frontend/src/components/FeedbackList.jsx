@@ -1,7 +1,7 @@
 export default function FeedbackList({ feedbacks }) {
     return (
         <div className="w-full max-w-md mt-6">
-            <h2 className="text-2xl font-semibold mb-4">Submitted Feedback</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-center">Submitted Feedback</h2>
             {feedbacks.length === 0 ? (
             <p className="text-gray-500">No feedback yet.</p>
             ) : (

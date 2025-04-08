@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import FeedbackForm from "./components/FeedbackForm";
 import FeedbackList from "./components/FeedbackList";
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 
 
 function App() {
@@ -9,7 +11,7 @@ function App() {
   const [theme, setTheme] = useState("light");
 
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
-
+  
   const handleSubmit = async (feedback) => {
     const response = await fetch("/.netlify/functions/submit-feedback", {
       method: "POST",
@@ -29,12 +31,13 @@ function App() {
 
   return (
     
-    <div className={`min-h-screen ${theme === "light" ? "bg-gray-100" : "bg-gray-900 text-white"} flex flex-col items-center py-8`}>
-      <button onClick={toggleTheme} className="mt-4 px-4 py-2 bg-gray-700 text-white rounded">
-        Toggle {theme === "light" ? "Dark" : "Light"} Theme
+    <div className={`min-h-screen ${theme === "light" ? "bg-gray-100" : "bg-gray-900"} flex flex-col items-center py-8`}>
+      
+      <button onClick={toggleTheme} className="mt-4 px-4 py-2 bg-gray-700 text-white rounded absolute right-5 top-0">
+              {theme === "light" ? <DarkModeIcon/> : <LightModeIcon/>} 
       </button>
 
-      <FeedbackForm onSubmit={handleSubmit} />
+      <FeedbackForm onSubmit={handleSubmit}  />
 
       <button
         onClick={() => setShowFeedback(!showFeedback)}
@@ -45,7 +48,7 @@ function App() {
 
       {showFeedback && <FeedbackList feedbacks={feedbacks} />}
 
-      <footer className="mt-8 text-gray-500">
+      <footer className="mt-8 text-gray-500 bg-stone-200 w-screen text-center bottom-0 fixed">
         Made with ❤️ by Ankit Nautiyal
       </footer>
     </div>
