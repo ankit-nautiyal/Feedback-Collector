@@ -31,7 +31,7 @@ export default function FeedbackForm({ onSubmit }) {
 
     return (
         <form onSubmit={handleSubmit} className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-4">Submit Feedback</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-center">Submit Feedback</h2>
             {error && <p className="text-red-500 mb-4">{error}</p>}
 
             <div className="mb-4">
