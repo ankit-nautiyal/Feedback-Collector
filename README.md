@@ -4,6 +4,17 @@ A single-page full-stack application built to collect user feedback (name, email
 
 ---
 
+## Project Screenshots
+
+![image](https://github.com/user-attachments/assets/451a4875-0065-48e8-b0f0-33133732dd69)
+![image](https://github.com/user-attachments/assets/e524534c-4fff-4bdf-a0b5-3fc89fb1e48f)
+![image](https://github.com/user-attachments/assets/205d4362-6ab0-419a-a6b5-3d78a1ae95b1)
+![image](https://github.com/user-attachments/assets/0534723f-310d-44bb-952c-e8acb483f043)
+![image](https://github.com/user-attachments/assets/75104058-8284-40b3-a5ba-6ec64edfecde)
+![image](https://github.com/user-attachments/assets/36446f1b-50bd-4971-96bc-d65eebe125ec)
+![image](https://github.com/user-attachments/assets/fb631712-f221-43f1-b42c-3091f192e8c0)
+
+---
 ## Project Structure
 
 ```
@@ -61,7 +72,6 @@ Feedback-Collector/
   - **Netlify**: Hosts both the static frontend and serverless backend.
 
 ---
-
 ## Features
 
 - **Feedback Submission**: Users can submit their name, email, and message via a form.
