@@ -4,6 +4,8 @@ import FeedbackList from "./components/FeedbackList";
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import api from "./api.js";
+import { ToastContainer, toast } from "react-toastify"; // Import toast components
+import "react-toastify/dist/ReactToastify.css"; // Import CSS for styling
 
 
 function App() {
@@ -32,11 +34,26 @@ function App() {
       const newFeedback = { ...feedback, timestamp: Date.now() };
       await api.post("/submit-feedback", newFeedback);
 
-      // Fetch updated feedbacks after submission
-      const response = await api.get("/feedbacks");
+      const response = await api.get("/feedbacks"); // Fetch updated feedbacks after submission
       setFeedbacks(response.data);
+
+      // Show success toast notification
+      toast.success("Feedback submitted successfully!", {
+        position: "top-right",
+        autoClose: 3000, // 3 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
     } catch (error) {
       console.error("Error submitting feedback:", error);
+
+      // Show error toast notification
+      toast.error("Failed to submit feedback.", {
+        position: "top-right",
+        autoClose: 3000,
+      });
     }
   };
 
@@ -54,7 +71,7 @@ function App() {
 
       <button
         onClick={() => setShowFeedback(!showFeedback)}
-        className="mt-4 px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800"
+        className="mt-4 px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800 transition-transform duration-200 transform hover:scale-105 active:scale-95"
       >
         {showFeedback ? "Hide Feedback" : "View Submitted Feedback"}
       </button>
@@ -64,6 +81,8 @@ function App() {
       <footer className="mt-8 text-gray-500 bg-stone-200 w-screen text-center bottom-0 fixed">
         Made with ❤️ by Ankit Nautiyal
       </footer>
+
+      <ToastContainer />
     </div>
     
   )

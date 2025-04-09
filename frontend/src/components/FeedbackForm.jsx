@@ -76,7 +76,7 @@ export default function FeedbackForm({ onSubmit }) {
 
                 <button
                     type="submit"
-                    className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 disabled:bg-gray-400"
+                    className={`w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 disabled:bg-gray-400 transition-colors duration-200 ${loading ? "animate-pulse" : "" }`}
                     disabled={loading}
                 >
                     {loading ? "Submitting..." : "Submit"}
