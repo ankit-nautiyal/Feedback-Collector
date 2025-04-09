@@ -12,7 +12,20 @@ function App() {
   const [theme, setTheme] = useState("light");
 
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
-    
+
+  // Fetch feedbacks on mount
+  useEffect(() => {
+    const fetchFeedbacks = async () => {
+      try {
+        const response = await api.get("/feedbacks");
+        setFeedbacks(response.data);
+      } catch (error) {
+        console.error("Error fetching feedbacks:", error);
+      }
+    };
+    fetchFeedbacks();
+  }, []);
+
   // Handle form submission
   const handleSubmit = async (feedback) => {
     try {
@@ -27,18 +40,7 @@ function App() {
     }
   };
 
-  // Fetch feedbacks on mount
-  useEffect(() => {
-    const fetchFeedbacks = async () => {
-      try {
-        const response = await api.get("/get-feedbacks");
-        setFeedbacks(response.data);
-      } catch (error) {
-        console.error("Error fetching feedbacks:", error);
-      }
-    };
-    fetchFeedbacks();
-  }, []);
+
 
   return (
     

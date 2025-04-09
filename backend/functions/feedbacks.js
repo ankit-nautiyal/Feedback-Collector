@@ -7,21 +7,20 @@ const supabase = createClient(
 );
 
 exports.handler = async (event) => {
-    if (event.httpMethod !== "POST") {
+    if (event.httpMethod !== "GET") {
         return { statusCode: 405, body: "Method Not Allowed" };
     }
-
+    
     try {
-        const { name, email, message, timestamp } = JSON.parse(event.body);
-        const { error } = await supabase
+        const { data, error } = await supabase
             .from("feedbacks")
-            .insert([{ name, email, message, timestamp }]);
-
+            .select("*")
+            .order("timestamp", { ascending: false });
         if (error) throw error;
 
         return {
             statusCode: 200,
-            body: JSON.stringify({ message: "Feedback submitted" }),
+            body: JSON.stringify(data),
         };
     } catch (error) {
         return {
