@@ -78,7 +78,10 @@ Feedback-Collector/
 - **Admin View**: Toggleable section to view all submitted feedback.
 - **Responsive Design**: Works across mobile and desktop devices.
 - **Theme Toggle**: Switch between light and dark modes.
-- **Persistent Storage**: Feedback is stored in Supabase, accessible across sessions.
+- **Persistent Storage**: Feedback is stored in Supabase and is accessible across sessions.
+-  **Thoughtful Transitions**: The Feedback list fades in smoothly when toggled.
+- **Micro Animations**: Buttons scale on hover/click, and the submit button pulses during submission.
+- **Toast Notifications**: Success/error messages appear for 3 seconds after form submission.
 
 ---
 
