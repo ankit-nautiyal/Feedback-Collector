@@ -1,3 +1,4 @@
 [build]
   publish = "frontend/dist"
   functions = "backend/functions"
+  command = "npm install && npm run build"
