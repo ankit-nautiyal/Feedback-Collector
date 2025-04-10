@@ -33,7 +33,7 @@ export default function FeedbackForm({ onSubmit }) {
     };
 
     return (
-        <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
+        <div className="mt-12 w-full max-w-md p-6 bg-white rounded-lg shadow-md">
         
             <form onSubmit={handleSubmit} className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
 
